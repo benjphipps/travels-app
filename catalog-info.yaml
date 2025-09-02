@@ -10,7 +10,9 @@ metadata:
     - example
     - service mesh
     - travels
+  annotations:
+    github.com/project-slug: benjphipps/travels-app
 spec:
   type: website
   lifecycle: production
-  owner: ssa-team
+  owner: benjphipps

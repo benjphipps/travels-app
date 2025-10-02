@@ -141,14 +141,14 @@ spec:
 
     - id: create-namespaces
       name: Create Kubernetes Namespaces
-      action: kubernetes:apply
+      action: kube:apply
       input:
         manifestPath: ./manifests/namespaces.yaml
         clusterRef: ${{ parameters.cluster }}
 
     - id: deploy-travel-agency
       name: Deploy Travel Agency Services
-      action: kubernetes:apply
+      action: kube:apply
       input:
         manifestPath: ./manifests/travel-agency.yaml
         namespace: travel-agency
@@ -156,7 +156,7 @@ spec:
 
     - id: deploy-travel-portal
       name: Deploy Travel Portal Services
-      action: kubernetes:apply
+      action: kube:apply
       input:
         manifestPath: ./manifests/travel-portal.yaml
         namespace: travel-portal
@@ -164,7 +164,7 @@ spec:
 
     - id: deploy-travel-control
       name: Deploy Travel Control Dashboard
-      action: kubernetes:apply
+      action: kube:apply
       input:
         manifestPath: ./manifests/travel-control.yaml
         namespace: travel-control
@@ -173,7 +173,7 @@ spec:
     - id: setup-chaos-monkey
       name: Configure Chaos Engineering
       if: ${{ parameters.enableChaos }}
-      action: kubernetes:patch
+      action: kube:patch
       input:
         resource: deployment/flights-v1
         namespace: travel-agency

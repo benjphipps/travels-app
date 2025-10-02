@@ -141,7 +141,7 @@ spec:
 
     - id: create-namespaces
       name: Create Kubernetes Namespaces
-      action: kube:apply
+      action: kubernetes:create-namespace
       input:
         manifestPath: ./manifests/namespaces.yaml
         clusterRef: ${{ parameters.cluster }}
